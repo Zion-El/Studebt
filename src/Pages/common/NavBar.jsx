@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
-import {Logo} from '../../assets/Logo.png'
-import Icon from '../../assets/icon.png'
+import Logo from '../../assets/Logo.png'
+import Logo_Icon from '../../assets/icon.png'
 
 const NavBar = () => {
 
@@ -18,12 +18,15 @@ const NavBar = () => {
     }
 
   return (
-    <div className='w-full fixed bg-[#fff] px-[150px] py-4 flex justify-between items-center'>
+    <div className='w-[100%] fixed bg-[#fff] px-[100px] py-4 flex justify-between items-center'>
         {/* LOGO */}
-        <div>{Icon}</div>
+        <div className=''>
+            <img className='inline' src={Logo_Icon} alt="logo icon" />
+            <img className='inline' src={Logo} alt="logo" />
+        </div>
 
         {/* NAV LINKS */}
-        <div className='flex justify-between items-center gap-4'>
+        <div className='flex justify-between items-center gap-10'>
             <NavLink to='/' style={HandleActive} onClick={()=> setActive(!active)}>
                <p className='text-[#202020] text-[14px]'>Home</p> 
             </NavLink>
@@ -40,11 +43,11 @@ const NavBar = () => {
 
         {/* AUTH BUTTONS */}
         <div className='flex justify-between items-center gap-4'>
-            <Link to='/signin'>
-                <p>Sign In</p>
+            <Link to='/signin' className='flex items-center justify-center w-[104px] h-[44px] border border-[#097E72] rounded-[10px]'>
+                <p className='text-[#097E72]'>Sign In</p>
             </Link>
-            <Link to='/register'>
-                <p>Register</p>
+            <Link to='/register' className='flex items-center justify-center w-[104px] h-[44px] bg-[#097E72] rounded-[10px]'>
+                <p className='text-white'>Register</p>
             </Link>
         </div>
     </div>
